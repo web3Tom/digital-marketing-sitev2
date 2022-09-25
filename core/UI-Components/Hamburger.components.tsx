@@ -18,7 +18,7 @@ const HamburgerIcon = ({
     },
     opened: {
       rotate: 45,
-      translateY: 2.3,
+      translateY: 2,
     },
   };
   const center = {
@@ -36,7 +36,7 @@ const HamburgerIcon = ({
     },
     opened: {
       rotate: -45,
-      translateY: -3.5,
+      translateY: -2,
     },
   };
   lineProps = {

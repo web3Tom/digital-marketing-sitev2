@@ -4,7 +4,7 @@ export default function Layout({ children }) {
   return (
     <div className="w-full bg-black">
       <Header />
-      <main className="md:w-full sm:w-full">{children}</main>
+      <main className="mx-auto w-full">{children}</main>
     </div>
   );
 }
