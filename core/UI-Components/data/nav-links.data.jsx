@@ -58,6 +58,13 @@ export const Routes = [
               'Make sure every customer is requested to leave a review',
           },
           {
+            path: '/software/webchat',
+            name: 'WebChat',
+            icon: <FaThumbsUp size="20px" />,
+            description:
+              'Generate up to 11x more inbound leads from your website',
+          },
+          {
             path: '/software/payments',
             name: 'Payments',
             icon: <FaDollarSign size="20px" />,

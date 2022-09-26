@@ -9,4 +9,5 @@ body {
   font-family: 'Jura', sans-serif;
   background-color: black;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }

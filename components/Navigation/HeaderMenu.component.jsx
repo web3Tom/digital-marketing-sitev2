@@ -51,7 +51,7 @@ const HeaderMenu = ({ route }) => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed text-center bg-white md:top-[86px] md:left-[calc(100vw-(780px*1.75))] md:w-[780px] md:rounded-2xl md:px-5 md:pb-9 md:pt-5"
+            className="fixed text-center bg-white md:top-[86px] md:left-[calc(100vw-(50%+780px/2))] md:w-[780px] md:rounded-2xl md:px-5 md:pb-9 md:pt-5"
             variants={DropDownContainer}
             initial="hidden"
             animate="show"

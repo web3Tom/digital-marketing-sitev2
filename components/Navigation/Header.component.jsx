@@ -7,6 +7,7 @@ import HeaderLogo from '../../core/UI-Components/logo.component';
 import HeaderMenu from './HeaderMenu.component';
 import { HamburgerIcon } from '../../core/UI-Components/Hamburger.components';
 import HeaderMobileMenu from './HeaderMobileMenu.component';
+import { GradientButton } from '../../core/UI-Components/buttons/gradient-button.component';
 
 import { Routes } from '../../core/UI-Components/data/nav-links.data';
 
@@ -73,13 +74,11 @@ const Header = () => {
               Login
             </motion.a>
           </Link>
-          <button
-            to="https://app.arcanadigital.io/"
-            target="_blank"
-            className="text-white text-center tracking-tighter  rounded-full text-xs px-3 py-[5px] md:py-[6px] md:px-4  md:text-lg md:font-semi-bold bg-gradient-to-tl to-blue-600 via-green-600 from-blue-600 transition-all duration-500 bg-size-200 bg-pos-0 hover:bg-pos-100 focus:ring-4 focus:outline-none focus:ring-green-200"
-          >
-            Schedule a Free Call
-          </button>
+          <GradientButton
+            link="https://app.arcanadigital.io/"
+            buttonTarget="_blank"
+            content="Schedule a Free Call"
+          />
           {isMobile && (
             <HamburgerIcon
               isOpen={isOpen}

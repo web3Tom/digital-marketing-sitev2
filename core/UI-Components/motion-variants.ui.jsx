@@ -48,3 +48,30 @@ export const FadeInUp = {
     },
   },
 };
+
+export const ScrollUp = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      duration: 0.8,
+      ease: 'easeInOut',
+    },
+  },
+};
+
+export const ScrollUpChild = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+  },
+};
