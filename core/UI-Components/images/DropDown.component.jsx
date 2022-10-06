@@ -44,7 +44,7 @@
 //       {open && (
 //         <motion.div
 //           ref={ref}
-//           className="dropdown-hover absolute left-0 md:top-0 md:mt-9 md:w-[680px] bg-white rounded-lg md:px-5 md:pt-5 md:pb-8 text-center"
+//           className="dropdown-hover absolute left-0 tab:top-0 tab:mt-9 tab:w-[680px] bg-white rounded-lg tab:px-5 tab:pt-5 tab:pb-8 text-center"
 //           key={linksArray.id}
 //           variants={ddContainer}
 //           initial="hidden"

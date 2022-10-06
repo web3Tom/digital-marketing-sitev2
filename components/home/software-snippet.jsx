@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import softwareImg from '../../public/software-snippet.png';
 
-import { ScrollUp } from '../../core/UI-Components/motion-variants.ui';
+import { ScrollUp } from '../../core/Animation/motion-variants';
 
 const SoftwareSnippet = (props) => {
   return (

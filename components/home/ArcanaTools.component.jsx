@@ -1,10 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import {
-  ScrollUp,
-  ScrollUpChild,
-} from '../../core/UI-Components/motion-variants.ui';
+import { ScrollUp, ScrollUpChild } from '../../core/Animation/motion-variants';
 
 const toolsArray = [
   {
@@ -51,9 +48,9 @@ const toolsArray = [
 
 const ArcanaTools = () => {
   return (
-    <section className="bg-gray-300 text-black py-20 md:px-36">
+    <section className="bg-gray-300 text-black py-20 tab:px-36">
       <div className="w-fit mx-auto text-center">
-        <h1 className="text-3xl font-extrabold md:mb-2">
+        <h1 className="text-3xl font-extrabold tab:mb-2">
           Own Your Digital Presence with Tools that Work
         </h1>
         <p className="text-gray-500 text-lg">
@@ -63,7 +60,7 @@ const ArcanaTools = () => {
           variants={ScrollUp}
           initial="hidden"
           whileInView="show"
-          className="grid md:grid-cols-4 gap-8 pt-10"
+          className="grid tab:grid-cols-4 gap-8 pt-10"
           viewport={{ amount: 0.3 }}
         >
           {toolsArray.map((item, i) => (
@@ -73,10 +70,10 @@ const ArcanaTools = () => {
               key={i}
               className="flex flex-col justify-start text-left border-2 border-black rounded-xl px-3 pb-3"
             >
-              <h3 className="md:text-2xl md:p-2 font-black text-black">
+              <h3 className="tab:text-2xl tab:p-2 font-black text-black">
                 {item.tool}
               </h3>
-              <p className="text-black md:text-base">{item.description}</p>
+              <p className="text-black tab:text-base">{item.description}</p>
             </motion.div>
           ))}
         </motion.div>

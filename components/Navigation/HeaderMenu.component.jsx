@@ -1,33 +1,44 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
-import listenForOutsideClicks from './dropdown.events';
-import { FaAngleDown } from 'react-icons/fa';
 import Link from 'next/link';
+import useMeasure from 'react-use-measure';
 
-import {
-  DropDownContainer,
-  DropDownChild,
-} from '../../core/UI-Components/motion-variants.ui';
+import { FaAngleDown } from 'react-icons/fa';
+
+let useClickOutside = (handler) => {
+  let domNode = useRef();
+
+  useEffect(() => {
+    let maybeHandler = (event) => {
+      if (!domNode.current.contains(event.target)) {
+        handler();
+      }
+    };
+    document.addEventListener('mousedown', maybeHandler);
+
+    return () => {
+      document.removeEventListener('mousedown', maybeHandler);
+    };
+  });
+
+  return domNode;
+};
 
 const HeaderMenu = ({ route }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef(null);
-  const [listening, setListening] = useState(false);
-  const ToggleDropDown = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  let [heightRef, { height }] = useMeasure();
 
-  useEffect(
-    listenForOutsideClicks(listening, setListening, menuRef, setIsMenuOpen)
-  );
+  let domNode = useClickOutside(() => {
+    setIsMenuOpen(false);
+  });
 
   return (
-    <motion.div ref={menuRef}>
+    <div ref={domNode}>
       <span
-        className="flex justify-center items-center overflow-visible"
-        onClick={ToggleDropDown}
+        className="relative flex justify-center items-center overflow-visible"
+        onClick={() => setIsMenuOpen((isMenuOpen) => !isMenuOpen)}
       >
-        <p className="cursor-default pr-[2px] select-none hover:scale-105 hover:underline">
+        <p className="text-sm cursor-default pr-[2px] select-none underline-offset-4 hover:underline sm:transition-all">
           {route.name}
         </p>
         <motion.div
@@ -49,64 +60,105 @@ const HeaderMenu = ({ route }) => {
         </motion.div>
       </span>
       <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className="fixed text-center bg-white md:top-[86px] md:left-[calc(100vw-(50%+780px/2))] md:w-[780px] md:rounded-2xl md:px-5 md:pb-9 md:pt-5"
-            variants={DropDownContainer}
-            initial="hidden"
-            animate="show"
-            exit="exit"
+        <motion.div
+          initial={{ height: '0px', zIndex: 0 }}
+          animate={{
+            height,
+            zIndex: 20,
+          }}
+          transition={{ duration: 0.5, type: 'tween', ease: 'circOut' }}
+          exit={{
+            height: '0px',
+            transition: { duration: 0.3 },
+          }}
+          className="absolute overflow-hidden tab:top-[115px] left-[5%] w-[90%]"
+          key={isMenuOpen}
+          layout
+        >
+          <div
+            ref={heightRef}
+            className="text-center bg-white tab:rounded-2xl shadow-inner shadow-primary-500 font-['roc-grotesk']"
           >
-            <motion.div
-              className="flex flex-col justify-start gap-5"
-              variants={DropDownChild}
-            >
-              {route.subRoutes.map((subRoute, i) => (
-                <motion.div className="flex flex-col w-full gap-3" key={i}>
-                  <h1 className="font-bold text-black text-xl">
-                    {subRoute.title}
-                  </h1>
-                  <h3 className="font-light text-gray-700 text-md">
-                    {subRoute.subTitle}
-                  </h3>
-                  <p className="font-light text-gray-700 text-sm">
-                    {subRoute.description}
-                  </p>
-                  <div
-                    className={`grid gap-y-5 ${
-                      subRoute.title === 'Arcana Growth Services'
-                        ? 'grid-cols-2 justify-items-center gap-x-8'
-                        : 'grid-cols-3 justify-items-center gap-x-5'
-                    }`}
+            {isMenuOpen && (
+              <div className="flex justify-start gap-x-3 divide-x-2 divide-primary-900 px-4 pb-5 pt-5">
+                {route.subRoutes.map((subRoute, i) => (
+                  <motion.div
+                    className="grid-cols-1 auto-rows-auto w-full"
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, transition: { delay: 0.2 } }}
+                    exit={{ opacity: 0 }}
                   >
-                    {subRoute.subRoutes.map((nested, i) => (
-                      <motion.span
-                        className="flex justify-center gap-3 items-start bg-gray-300 rounded-xl p-2"
-                        key={i}
-                      >
-                        <p className="font-light text-black text-xs">
-                          {nested.icon}
-                        </p>
-                        <span className="flex flex-col items-start gap-1">
-                          <Link href={nested.path}>
-                            <a className="text-black text-md font-semibold">
-                              {nested.name}
-                            </a>
-                          </Link>
-                          <p className="text-gray-600 text-sm text-left font-normal">
-                            {nested.description}
-                          </p>
-                        </span>
-                      </motion.span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        )}
+                    <p className="pb-2 text-2xl font-['roc-grotesk'] text-primary-900 text-center font-normal">
+                      {subRoute.title}
+                    </p>
+                    <p className="text-left px-10 pb-4 leading-5 font-light text-gray-600 text-[16px]">
+                      {subRoute.subTitle}
+                    </p>
+                    <div
+                      className={`${
+                        subRoute.title === 'Digital Marketing Services' ||
+                        subRoute.title === 'Web Development Services'
+                          ? 'flex flex-col justify-center items-center gap-y-5 pl-10 pr-3'
+                          : 'grid gap-y-5 grid-cols-3 justify-items-center gap-x-3 pl-3'
+                      }`}
+                    >
+                      {subRoute.subRoutes.map((nested, i) => {
+                        if (
+                          subRoute.title === 'Digital Marketing Services' ||
+                          subRoute.title === 'Web Development Services'
+                        ) {
+                          return (
+                            <motion.span
+                              className="w-full p-3 flex justify-start gap-3 items-start bg-primary-600 rounded-xl"
+                              key={i}
+                              inital={{ y: 0 }}
+                              whileHover={{ y: -5 }}
+                            >
+                              <p className="text-white">{nested.icon}</p>
+                              <span className="flex flex-col items-start gap-1">
+                                <Link href={nested.path}>
+                                  <a className=" text-white text-lg font-medium">
+                                    {nested.name}
+                                  </a>
+                                </Link>
+                                <p className="text-white text-sm text-left font-normal">
+                                  {nested.description}
+                                </p>
+                              </span>
+                            </motion.span>
+                          );
+                        }
+                        return (
+                          <motion.span
+                            className="w-full py-2 flex flex-col justify-start gap-2 items-center border-2 border-primary-300 rounded-xl "
+                            key={i}
+                            inital={{ y: 0 }}
+                            whileHover={{ y: -5 }}
+                          >
+                            <span className="flex w-[90%] justify-center items-center">
+                              <p className="text-primary-500">{nested.icon}</p>
+                              <Link href={nested.path}>
+                                <a className="pl-2 text-primary-500 text-sm font-light whitespace-nowrap">
+                                  {nested.name}
+                                </a>
+                              </Link>
+                            </span>
+                            <p className="px-1 text-primary-500 text-xs text-center font-light">
+                              {nested.description}
+                            </p>
+                          </motion.span>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+          </div>
+        </motion.div>
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };
 

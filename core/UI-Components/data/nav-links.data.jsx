@@ -14,8 +14,8 @@ export const Routes = [
     name: 'What We Do',
     subRoutes: [
       {
-        title: 'Arcana Growth Services',
-        subTitle: `Do your business a solid and leverage our expertise for extraordinary growth. Become the leader in your area!.`,
+        title: 'Digital Marketing Services',
+        subTitle: `Do your business a solid and leverage our expertise for extraordinary growth. Become the leader in your area!`,
         subRoutes: [
           {
             path: '/services/SEO',
@@ -33,54 +33,70 @@ export const Routes = [
         ],
       },
       {
-        name: 'Arcana Growth Software',
-        title: "Arcana's CRM Platform",
+        name: 'Business Software',
+        title: 'All-in-one CRM Platform',
         subTitle: `Ready to take your business's digital presence seriously? Get everything an entrepenuer needs for less than half the price of Hubspot.`,
         subRoutes: [
           {
             path: '/software/messaging',
             name: 'Messaging',
-            icon: <FaMobileAlt size="20px" />,
-            description:
-              'Manage messages from a single inbox for text, FB messages, GMB, and more',
+            icon: <FaMobileAlt size="17px" />,
+            description: 'Manage messages from a single inbox',
           },
           {
             path: '/software/automation',
             name: 'Automation',
-            icon: <FaUserClock size="20px" />,
-            description: `Automate entire sales processes or simple auto-responses`,
+            icon: <FaUserClock size="17px" />,
+            description: `Automate sales & marketing`,
           },
           {
             path: '/software/reviews',
             name: 'Reviews',
-            icon: <FaThumbsUp size="20px" />,
-            description:
-              'Make sure every customer is requested to leave a review',
+            icon: <FaThumbsUp size="17px" />,
+            description: 'Get reviews on autopilot',
           },
           {
-            path: '/software/webchat',
-            name: 'WebChat',
-            icon: <FaThumbsUp size="20px" />,
-            description:
-              'Generate up to 11x more inbound leads from your website',
+            path: '/software/livechat',
+            name: 'Live Chat',
+            icon: <FaThumbsUp size="17px" />,
+            description: 'Generate 11x more inbound leads from your website',
           },
           {
             path: '/software/payments',
             name: 'Payments',
-            icon: <FaDollarSign size="20px" />,
+            icon: <FaDollarSign size="17px" />,
             description: 'Invoice via email or text at the click of a button',
           },
           {
             path: '/software/forms-and-websites',
-            name: 'Forms and Websites',
-            icon: <FaLaptopCode size="20px" />,
-            description: `Design your own forms, website, surverys and more`,
+            name: 'Forms & Sites',
+            icon: <FaLaptopCode size="17px" />,
+            description: `Design forms, website, surverys & more`,
           },
           {
             path: '/software/reporting',
             name: 'Reporting',
-            icon: <FaSignal size="20px" />,
-            description: 'Track sales, campaigns, email and call statistics',
+            icon: <FaSignal size="17px" />,
+            description: 'Track sales, campaigns, email & call statistics',
+          },
+        ],
+      },
+      {
+        title: 'Web Development Services',
+        subTitle: `Do your business a solid and leverage our expertise for extraordinary growth. Become the leader in your area!`,
+        subRoutes: [
+          {
+            path: '/services/web-development',
+            name: 'Hyper SEO',
+            icon: <FaBullhorn size="30px" />,
+            description: "Guaranteed ranking or you don't pay. Period.",
+          },
+          {
+            path: '/services/livechat',
+            name: 'Live Chat Widget',
+            icon: <FaThumbsUp size="30px" />,
+            description:
+              "Give us your stale contact list. We'll give you back fresh customers.",
           },
         ],
       },
@@ -93,5 +109,9 @@ export const Routes = [
   {
     name: 'Why Arcana?',
     path: '/why-arcana',
+  },
+  {
+    name: 'Login',
+    path: 'https://app.countrysidemedia.io',
   },
 ];

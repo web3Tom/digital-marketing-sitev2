@@ -6,7 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Jura', sans-serif;
+  font-family: 'Inter var', 'roc-grotesk', 'roc-grotesk-extrawide', sans-serif;
   background-color: black;
   box-sizing: border-box;
   scroll-behavior: smooth;
