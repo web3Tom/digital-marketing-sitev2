@@ -47,7 +47,7 @@ const HomeHero = ({ executeScroll }) => {
         >
           <motion.div className="text-center tab:text-left sm:pb-2 tab:pb-2 md:pb-4 lg:pb-10 relative">
             <motion.p
-              className="sm:mb-2 tab:mb-1 md:mb-3 lg:mb-4 font-['Inter var'] uppercase font-bold text-sm tab:text-base md:text-lg lg:text-xl xl:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-secondary-900 via-green-500 to-secondary-900"
+              className="sm:mb-2 tab:mb-1 md:mb-3 lg:mb-4 font-['Inter var'] uppercase font-bold text-sm tab:text-base md:text-lg lg:text-xl xl:text-2xl text-white"
               variants={FlyInLeftItem}
             >
               Stop Paying for multuple marketing services
@@ -56,13 +56,10 @@ const HomeHero = ({ executeScroll }) => {
               className="-mb-1 md:mb-0 xl:mb-1 font-['Inter var'] uppercase sm:text-2xl tab:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r placeholder-amber-100 from-secondary-900 via-green-500 to-secondary-900"
               variants={FlyInLeftItem}
             >
-              <span className="text-white pr-1 tab:pr-2 lg:pr-3">
-                We&#8217;re a
-              </span>
-              Digiltal Marketing Agency
+              A Digiltal Marketing Agency
             </motion.h1>
             <motion.p
-              className="font-['Inter var'] uppercase font-black text-white sm:text-2xl tab:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+              className="font-['Inter var'] uppercase font-black sm:text-2xl tab:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-transparent bg-clip-text bg-gradient-to-r  from-secondary-900 via-green-500 to-secondary-900"
               variants={FlyInLeftItem}
             >
               Outfitted for the future
@@ -96,20 +93,8 @@ const HomeHero = ({ executeScroll }) => {
             />
           </motion.div>
         </motion.div>
-        <div className="z-10 w-[600px] h-auto pl-10 flex flex-col justify-start items-start">
-          <div className="w-full pb-24">
-            <Image
-              src="/hero/software-snippet.png"
-              layout="intrinsic"
-              objectFit
-              width="927px"
-              height="679px"
-              alt="/"
-            />
-          </div>
-          <motion.div className="w-full">
-            <ServicesTrinity />
-          </motion.div>
+        <div className="z-10 w-full max-w-[40vw] h-auto flex flex-col justify-start items-start">
+          <ServicesTrinity />
         </div>
       </div>
     </section>
