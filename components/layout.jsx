@@ -2,9 +2,9 @@ import Header from './Navigation/Header.component';
 
 export default function Layout({ children }) {
   return (
-    <div className="bg-[#0d1e34] relative">
+    <div className="bg-darkBlue relative">
       <Header />
-      <main className="mx-auto w-full">{children}</main>
+      <div className="mx-auto w-full overflow-hidden">{children}</div>
     </div>
   );
 }

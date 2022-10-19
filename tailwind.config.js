@@ -11,9 +11,10 @@ module.exports = {
   ],
   theme: {
     screens: {
+      xs: '390px',
       sm: '480px',
-      // => @media (min-width: 576px) { ... }
-      tab: '800px',
+      // => @media (min-width: 480px) { ... }
+      tab: '750px',
       md: '1024px',
       lg: '1366px',
       xl: '1500px',
@@ -34,32 +35,17 @@ module.exports = {
         'pos-100': '100% 100%',
       },
       colors: {
-        primary: {
-          50: '#007cc7',
-          100: '#007cc7',
-          200: '#007cc7',
-          300: '#007cc7',
-          400: '#007cc7',
-          500: '#007cc7',
-          600: '#007cc7',
-          700: '#007cc7',
-          800: '#007cc7',
-          900: '#007cc7',
-        },
-        secondary: {
-          50: '#a8db91',
-          100: '#a8db91',
-          200: '#a8db91',
-          300: '#a8db91',
-          400: '#7ed957',
-          500: '#7ed957',
-          600: '#7ed957',
-          700: '#7ed957',
-          800: '#7ed957',
-          900: '#7ed957',
-        },
+        primary: '#22c55e',
+        secondary: '#007cc7',
+        darkBlue: '#0d1e34',
+        liteBlue: '#2e769e',
       },
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      backgroundColor: ['resposnive', 'hover', 'focus', 'active'],
+    },
+  },
 };
