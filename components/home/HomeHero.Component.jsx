@@ -5,13 +5,10 @@ import {
   useTransform,
 } from 'framer-motion';
 import Image from 'next/image';
-import ServicesTrinity from '../../core/UI-Components/sections/services-trinity';
-import ServiceSummary from '../../core/UI-Components/sections/service-summary';
 import { HomeHeroCopy } from '../../core/UI-Components/copy';
 
 import {
   GradientButtonSecondary,
-  ButtonBlueAlt,
   ButtonGreenAlt,
 } from '../../core/UI-Components/buttons/buttons.component';
 
@@ -52,7 +49,7 @@ const HomeHero = () => {
             ))}
           </motion.svg>
           <motion.div
-            className="z-[0] absolute bottom-[0%] left-[calc(50vw_-_80px)] tab:left-[calc(50vw_-_100px)] md:left-[7%] cus:left-[4%] w-[160px] h-[160px] tab:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] cus:w-[400px] cus:h-[400px]"
+            className="z-[0] absolute bottom-[0%] md:bottom-[5%] cus:bottom-[0%] left-[calc(50vw_-_80px)] tab:left-[calc(50vw_-_100px)] md:left-[4%] w-[160px] h-[160px] tab:w-[200px] sm:h-[200px] md:w-[200px] md:h-[200px] cus:w-[400px] cus:h-[400px]"
             style={{ y }}
             variants={HeroMoonVariant}
             initial="hidden"

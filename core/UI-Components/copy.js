@@ -14,9 +14,8 @@ export const HomeHeroCopy = {
 
 export const WhatWeDoCopy = {
   title: `Stop paying for multiple, overpriced services.`,
-  description: `We pride ourselves on being business's ONLY digital partner.`,
-  service1:
-    'Serious about business? Get a CRM equal to Hubspot for less than half the price.',
-  service2: `It's time to grow. Leverage social media and Google to get seen.`,
-  service3: `A strong digital foundation is a lightning fast & professionally designed website.`,
+  description: `One agency. One Partner. We're all you'll need, guaranteed.`,
+  service1: 'Get a CRM equal to Hubspot, for less than half the price.',
+  service2: `Facebook & Google Ads done right.`,
+  service3: `Poor websites are like rocks, and selling rocks sucks.`,
 };

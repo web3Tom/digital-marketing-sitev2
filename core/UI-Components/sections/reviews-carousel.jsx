@@ -51,7 +51,7 @@ const ReviewsCarousel = () => {
   const [currentReview, setCurrentReview] = useState(reviewCards[0]);
 
   return (
-    <motion.section className="w-full pt-10 pb-20 bg-[#2e769e] flex flex-col justify-start items-center">
+    <motion.section className="w-full pt-20 pb-40 bg-[#2e769e] flex flex-col justify-start items-center">
       <motion.div
         viewport={{ amount: 0.3, once: true }}
         layout

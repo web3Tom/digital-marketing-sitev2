@@ -10,4 +10,9 @@ module.exports = {
 
     return config;
   },
+  images: {
+    domains: ['storage.googleapis.com/'],
+    loader: 'imgix',
+    path: 'https://storage.googleapis.com/',
+  },
 };
